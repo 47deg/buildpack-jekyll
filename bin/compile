@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+BUILD_DIR=${1?"Expected build dir to be passed as first argument to compile script"}
+
+if [ -d "$BUILD_DIR/_site" ]; then
+  echo "-----> Skipping Jekyll build because _site dir already exists"
+  exit 0
+else
+  cd "$BUILD_DIR"
+  echo "-----> Building Jekyll site"
+
+  bundle exec jekyll build
+  echo "       Finished building site"
+
+  echo "-----> Removing _content and _themes to reduce slug size"
+  rm -rf "$BUILD_DIR/_content"
+  rm -rf "$BUILD_DIR/_themes"
+  echo "       Done"
+
+fi
