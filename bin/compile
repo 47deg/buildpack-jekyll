@@ -12,9 +12,8 @@ else
   bundle exec jekyll build
   echo "       Finished building site"
 
-  echo "-----> Removing _content and _themes to reduce slug size"
+  echo "-----> Removing _content to reduce slug size"
   rm -rf "$BUILD_DIR/_content"
-  rm -rf "$BUILD_DIR/_themes"
   echo "       Done"
 
 fi
