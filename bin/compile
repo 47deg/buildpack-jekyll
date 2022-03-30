@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 BUILD_DIR=${1?"Expected build dir to be passed as first argument to compile script"}
 
 if [ -d "$BUILD_DIR/_site" ]; then
